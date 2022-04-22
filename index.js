@@ -20,7 +20,7 @@ var donationSuggestions = `
 var sellingSuggestions = `
   <div>
     <h2>Selling Your E-waste</h2>
-    <p>If you think your e-waste is in a re-sellable, we recommend the following marketplaces</p>
+    <p>If you think your e-waste is in a re-sellable state, we recommend the following marketplaces</p>
     <ul>
         <li>
             <a href='https://www.gizmogo.com/'>Gizmogo</a>
