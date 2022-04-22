@@ -1,7 +1,4 @@
-
-Survey
-.StylesManager
-.applyTheme("defaultV2");
+Survey.StylesManager.applyTheme("defaultV2");
 
 var donationSuggestions = `
   <div>
@@ -31,54 +28,70 @@ var sellingSuggestions = `
     </ul>
   </div>
 `;
-var json = {
-"showQuestionNumbers": "off",
-"elements": [
-    {
-        "type": "text",
-        "name": "zipcode",
-        "title": "What is your zipcode?",
-        "isrequired": true,
-        "inputMask": "9999",
-        "placeHolder": "10024"
-        // "colcount": 0
-    },
-    {
-        "type": "radiogroup",
-        "name": "intended-action",
-        "title": "What do you think you should do with this e-waste?",
-        "isrequired": true,
-        "choices": [
-            "Repair",
-            "Recycle",
-            "Sell",
-            "Donate",
-            "I'm not sure!"
-        ],
-        "colcount": 0
-    },
-    {
-        "type": "radiogroup",
-        "name": "device-condition",
-        "title": "What condition is the device in?",
-        "visibleIf": "{intended-action} == 'Repair'",
-        "choices": [
-            "Like new",
-            "Used",
-            "Barely Working",
-            "Not working",
-        ],
 
+var takebackSuggestions = `
+  <div>
+    <h2>Returning your E-waste to its Manufacturer</h2>
+    <p>Some manufacturers will take your</p>
+    <ul>
+        <li>
+            <a href='https://www.gizmogo.com/'>Gizmogo</a>
+        </li>
+        <li>
+            <a href='https://www.backmarket.com/'>Back Market</a>
+        </li>
+    </ul>
+  </div>
+`;
+
+var json = {
+  showQuestionNumbers: "off",
+  elements: [
+    {
+      type: "text",
+      name: "zipcode",
+      title: "What is your zipcode?",
+      isrequired: true,
+      inputMask: "9999",
+      placeHolder: "10024",
+      // "colcount": 0
     },
     {
-        "type": "html",
-        "html": donationSuggestions,
-        "visibleIf": "{intended-action} == 'Donate'"
+      type: "radiogroup",
+      name: "intended-action",
+      title: "What do you think you should do with this e-waste?",
+      isrequired: true,
+      choices: [
+        "Repair",
+        "Recycle",
+        "Sell",
+        "Take Back Programs",
+        "Donate",
+        "I'm not sure!",
+      ],
+      colcount: 0,
     },
     {
-        "type": "html",
-        "html": sellingSuggestions,
-        "visibleIf": "{intended-action} == 'Sell'"
+      type: "radiogroup",
+      name: "device-condition",
+      title: "What condition is the device in?",
+      visibleIf: "{intended-action} == 'Repair'",
+      choices: ["Like new", "Used", "Barely Working", "Not working"],
+    },
+    {
+      type: "html",
+      html: donationSuggestions,
+      visibleIf: "{intended-action} == 'Donate'",
+    },
+    {
+      type: "html",
+      html: sellingSuggestions,
+      visibleIf: "{intended-action} == 'Sell'",
+    },
+    {
+      type: "html",
+      html: takebackSuggestions,
+      visibleIf: "{intended-action} == 'Take Back Programs'",
     },
     // {
     //     "type": "radiogroup",
@@ -136,17 +149,14 @@ var json = {
     //     "startWithNewLine": false,
     //     "choicesMax": 18
     // }
-]
+  ],
 };
 
 window.survey = new Survey.Model(json);
 
-survey
-.onComplete
-.add(function (sender) {
-    document
-        .querySelector('#surveyResult')
-        .textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
+survey.onComplete.add(function (sender) {
+  document.querySelector("#surveyResult").textContent =
+    "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
 });
 
-$("#surveyElement").Survey({model: survey});
+$("#surveyElement").Survey({ model: survey });
