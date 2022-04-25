@@ -1,14 +1,72 @@
 Survey.StylesManager.applyTheme("defaultV2");
 
-var donationSuggestions = `
+var repairIFixit = `
   <div>
-    <h2>Donation Suggestions</h2>
+    <h2>A fixer upper!</h2>
+    <p>Here is some help to get you started on fixing your own device!</p>
     <ul>
         <li>
-            <a href='https://www.goodwillnynj.org/donate-goods'>Goodwill NY/NJ</a>
+            <a href='https://www.ifixit.com'>iFixit</a>
         </li>
+    </ul>
+    </div>
+`;
+
+var repairGoogleMap = `
+  <div>
+    <h2>Get it fixed locally!</h2>
+    <p>Here's a map of the closest "Electronic Repair Stores" near you!</p>
+    <ul>
         <li>
-            <a href='https://satruck.org/'>Salvation Army</a>
+            <a href='https://www1.nyc.gov/assets/dsny/site/home'>Map [NEEDS EDIT]</a>
+        </li>
+    </ul>
+    </div>
+`;
+
+var recycleGoogleMap = `
+  <div>
+    <h2>Get it recylced locally!</h2>
+    <p>Here's a map of the closest "Electronics Recylcing Locations" near you!</p>
+    <ul>
+        <li>
+            <a href='https://www1.nyc.gov/assets/dsny/site/home'>Map [NEEDS EDIT]</a>
+        </li>
+    </ul>
+    </div>
+`;
+
+var recycleSIPickUp = `
+  <div>
+    <h2>Get your electronics picked up!</h2>
+    <p>Here's how to get your e-waste picked up in Staten Island.</p>
+    <ul>
+        <li>
+            <a href='https://www1.nyc.gov/assets/dsny/site/contact/e-waste-pickup-request'>Staten Island Pickup</a>
+        </li>
+    </ul>
+  </div>
+`;
+
+var recycleDSNYDropOff = `
+  <div>
+    <h2>DSNY Drop off Locations</h2>
+    <p>Here are some of the DSNY drop of locations.</p>
+    <ul>
+        <li>
+            <a href='https://www1.nyc.gov/assets/dsny/site/services/electronics/electronics-drop-off-locations'>DSNY Drop Offs</a>
+        </li>
+    </ul>
+  </div>
+`;
+
+var recyclePopUpropOff = `
+  <div>
+    <h2>LES EC Pop Up Events</h2>
+    <p>Make a day out if it! Here is a schedule of the Pop Up events where you can take your e-waste to!</p>
+    <ul>
+        <li>
+            <a href='https://www.lesecologycenter.org/e-waste-collection-is-back/'>LES EC Pop Up</a>
         </li>
     </ul>
   </div>
@@ -27,18 +85,6 @@ var sellingSuggestions = `
         </li>
     </ul>
   </div>
-`;
-
-var notsureSuggestions = `
-  <div>
-    <h2>Get more information</h2>
-    <p>If you are not sure what to do with your e-waste, we recommend you visit DSNY</p>
-    <ul>
-        <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/home'>DSNY</a>
-        </li>
-    </ul>
-    </div>
 `;
 
 var takebackSuggestions = `
@@ -80,27 +126,30 @@ var takebackSuggestions = `
   </div>
 `;
 
-var repairUsedSuggestions = `
+var donationSuggestions = `
   <div>
-    <h2>Get it fixed locally!</h2>
-    <p>Here's a map of the closest "Electronic Repair Stores" near you!</p>
+    <h2>Donation Suggestions</h2>
     <ul>
         <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/home'>Map [NEEDS EDIT]</a>
+            <a href='https://www.goodwillnynj.org/donate-goods'>Goodwill NY/NJ</a>
+        </li>
+        <li>
+            <a href='https://satruck.org/'>Salvation Army</a>
         </li>
     </ul>
-    </div>
+  </div>
 `;
-var repairLikeNewSuggestions = `
+
+var notsureSuggestions = `
   <div>
-    <h2>A fixer upper!</h2>
-    <p>Here is some help to get you started on fixing your own device!</p>
+    <h2>Get more information</h2>
+    <p>If you are not sure what to do with your e-waste, we recommend you visit DSNY</p>
     <ul>
         <li>
-            <a href='https://www.ifixit.com'>iFixit</a>
+            <a href='https://www1.nyc.gov/assets/dsny/site/home'>DSNY</a>
         </li>
     </ul>
-    </div>
+  </div>
 `;
 
 var json = {
@@ -113,7 +162,6 @@ var json = {
       isrequired: true,
       inputMask: "9999",
       placeHolder: "10024",
-      // "colcount": 0
     },
     {
       type: "radiogroup",
@@ -126,9 +174,9 @@ var json = {
         "Sell",
         "Take Back Programs",
         "Donate",
-        "I'm not sure!",
+        "I am not sure",
       ],
-      colcount: 0,
+      // colcount: 0,
     },
     {
       type: "radiogroup",
@@ -138,18 +186,13 @@ var json = {
       choices: ["Like New", "Used", "Barely Working", "Not Working"],
     },
     {
-      type: "html",
-      html: donationSuggestions,
-      visibleIf: "{intended-action} == 'Donate'",
-    },
-    {
       type: "radiogroup",
       name: "recycle-option-statenisland",
       title:
         "Do you hope to drop off your e-waste or get your e-waste picked up?",
       visibleIf:
         "{intended-action} == 'Recycle' and ({zipcode} == '10301' or {zipcode} == '10302' or {zipcode} == '10303' or {zipcode} == '10304' or {zipcode} == '10305' or {zipcode} == '10306' or {zipcode} == '10307' or {zipcode} == '10308' or {zipcode} == '10309' or {zipcode} == '10310' or {zipcode} == '10311' or {zipcode} == '10312' or {zipcode} == '10313' or {zipcode} == '10314')",
-      choices: ["Drop off", "Pick up"],
+      choices: ["Pick Up", "Drop Off"],
     },
     {
       type: "radiogroup",
@@ -159,7 +202,7 @@ var json = {
         "{intended-action} == 'Recycle' and ({zipcode} != '10301' and {zipcode} != '10302' and {zipcode} != '10303' and {zipcode} != '10304' and {zipcode} != '10305' and {zipcode} != '10306' and {zipcode} != '10307' and {zipcode} != '10308' and {zipcode} != '10309' and {zipcode} != '10310' and {zipcode} != '10311' and {zipcode} != '10312' and {zipcode} != '10313' and {zipcode} != '10314')",
       choices: [
         "Check out nearby recycling centers",
-        "DSNY Drop off",
+        "DSNY Drop Off",
         "LES Ecology Center pop-up events",
       ],
     },
@@ -167,13 +210,17 @@ var json = {
       type: "radiogroup",
       name: "repair-fix-yourself",
       title: "Do you want to fix it yourself?",
-      visibleIf: "{device-condition} == 'Like New'",
+      visibleIf:
+        "{intended-action} == 'Repair' and {device-condition} == 'Like New'",
       choices: ["Yes", "No"],
     },
     {
-      type: "html",
-      html: donationSuggestions,
-      visibleIf: "{intended-action} == 'Donate'",
+      type: "radiogroup",
+      name: "repair-not-working",
+      title: "Are you sure you want to repair it??",
+      visibleIf:
+        "{intended-action} == 'Repair' and {device-condition} == 'Not Working'",
+      choices: ["Yes", "No"],
     },
     {
       type: "html",
@@ -187,19 +234,55 @@ var json = {
     },
     {
       type: "html",
+      html: donationSuggestions,
+      visibleIf: "{intended-action} == 'Donate'",
+    },
+    {
+      type: "html",
       html: notsureSuggestions,
       visibleIf: "{intended-action} == 'I am not sure'",
     },
     {
       type: "html",
-      html: repairUsedSuggestions,
+      html: repairIFixit,
       visibleIf:
-        "{device-condition} == 'Used' or {device-condition} == 'Barely Working' or {repair-fix-yourself} == 'No'",
+        "{intended-action} == 'Repair' and {device-condition} == 'Like New' and {repair-fix-yourself} == 'Yes'",
     },
     {
       type: "html",
-      html: repairLikeNewSuggestions,
-      visibleIf: "{repair-fix-yourself} == 'Yes'",
+      html: repairGoogleMap,
+      visibleIf:
+        "{intended-action} == 'Repair' and (({device-condition} == 'Like New' and {repair-fix-yourself} == 'No') or ({device-condition} == 'Used') or ({device-condition} == 'Barely Working') or ({device-condition} == 'Not Working' and {repair-not-working} == 'Yes')",
+    },
+    {
+      type: "html",
+      html: recycleSIPickUp,
+      visibleIf:
+        "{intended-action} == 'Recycle' and {recycle-option-statenisland} == 'Pick Up'",
+    },
+    {
+      type: "html",
+      html: recycleGoogleMap,
+      visibleIf:
+        "{intended-action} == 'Recycle' and ({recycle-option-statenisland} == 'Drop Off' or {recycle-option-nonstatenisland} == 'Check out nearby recycling centers')",
+    },
+    {
+      type: "html",
+      html: recycleGoogleMap,
+      visibleIf:
+        "{intended-action} == 'Repair' and {device-condition} == 'Not Working' and {repair-not-working} == 'No'",
+    },
+    {
+      type: "html",
+      html: recycleDSNYDropOff,
+      visibleIf:
+        "{intended-action} == 'Recycle' and {recycle-option-nonstatenisland} == 'DSNY Drop Off'",
+    },
+    {
+      type: "html",
+      html: recyclePopUpropOff,
+      visibleIf:
+        "{intended-action} == 'Recycle' and {recycle-option-nonstatenisland} == 'LES Ecology Center pop-up events'",
     },
   ],
 };
