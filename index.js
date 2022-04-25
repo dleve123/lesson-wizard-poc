@@ -31,6 +31,19 @@ var sellingSuggestions = `
     </ul>
   </div>
 `;
+
+var notsureSuggestions = `
+  <div>
+    <h2>Get more information</h2>
+    <p>If you are not sure what to do with your e-waste, we recommend you visit DSNY</p>
+    <ul>
+        <li>
+            <a href='https://www1.nyc.gov/assets/dsny/site/home'>DSNY</a>
+        </li>
+    </ul>
+  </div>
+`;
+
 var json = {
 "showQuestionNumbers": "off",
 "elements": [
@@ -53,7 +66,7 @@ var json = {
             "Recycle",
             "Sell",
             "Donate",
-            "I'm not sure!"
+            "I am not sure"
         ],
         "colcount": 0
     },
@@ -71,6 +84,29 @@ var json = {
 
     },
     {
+        "type": "radiogroup",
+        "name": "recycle-option-statenisland",
+        "title": "Do you hope to drop off your e-waste or get your e-waste picked up?",
+        "visibleIf": "{intended-action} == 'Recycle' and ({zipcode} == '10301' or {zipcode} == '10302' or {zipcode} == '10303' or {zipcode} == '10304' or {zipcode} == '10305' or {zipcode} == '10306' or {zipcode} == '10307' or {zipcode} == '10308' or {zipcode} == '10309' or {zipcode} == '10310' or {zipcode} == '10311' or {zipcode} == '10312' or {zipcode} == '10313' or {zipcode} == '10314')",
+        "choices": [
+            "Drop off",
+            "Pick up",
+        ],
+
+    },
+    {
+        "type": "radiogroup",
+        "name": "recycle-option-nonstatenisland",
+        "title": "Please see the following options to drop off your e-waste",
+        "visibleIf": "{intended-action} == 'Recycle' and ({zipcode} != '10301' and {zipcode} != '10302' and {zipcode} !== '10303' and {zipcode} != '10304' and {zipcode} != '10305' and {zipcode} != '10306' and {zipcode} != '10307' and {zipcode} != '10308' and {zipcode} != '10309' and {zipcode} != '10310' and {zipcode} != '10311' and {zipcode} != '10312' and {zipcode} != '10313' and {zipcode} != '10314')",
+        "choices": [
+            "Check out nearby recycling centers",
+            "DSNY Drop off",
+            "LES Ecology Center pop-up events"
+        ],
+
+    },
+    {
         "type": "html",
         "html": donationSuggestions,
         "visibleIf": "{intended-action} == 'Donate'"
@@ -79,6 +115,11 @@ var json = {
         "type": "html",
         "html": sellingSuggestions,
         "visibleIf": "{intended-action} == 'Sell'"
+    },
+    {
+        "type": "html",
+        "html": notsureSuggestions,
+        "visibleIf": "{intended-action} == 'I am not sure'"
     },
     // {
     //     "type": "radiogroup",
