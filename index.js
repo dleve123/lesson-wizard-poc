@@ -26,8 +26,8 @@ var repairGoogleMap = `
 
 var recycleGoogleMap = `
   <div>
-    <h2>Get it recylced locally!</h2>
-    <p>Here's a map of the closest "Electronics Recylcing Locations" near you!</p>
+    <h2>Get it recycled locally!</h2>
+    <p>Here's a map of the closest "Electronics Recycling Locations" near you!</p>
     <ul>
         <li>
             <a href='https://www1.nyc.gov/assets/dsny/site/home'>Map [NEEDS EDIT]</a>
@@ -51,7 +51,7 @@ var recycleSIPickUp = `
 var recycleDSNYDropOff = `
   <div>
     <h2>DSNY Drop off Locations</h2>
-    <p>Here are some of the DSNY drop of locations.</p>
+    <p>Here are some of the DSNY drop off locations.</p>
     <ul>
         <li>
             <a href='https://www1.nyc.gov/assets/dsny/site/services/electronics/electronics-drop-off-locations'>DSNY Drop Offs</a>
