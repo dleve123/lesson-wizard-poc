@@ -16,24 +16,16 @@ var repairGoogleMap = `
   <div>
     <h2>Get it fixed locally!</h2>
     <p>Here's a map of the closest "Electronic Repair Stores" near you!</p>
-    <ul>
-        <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/home'>Map [NEEDS EDIT]</a>
-        </li>
-    </ul>
-    </div>
+    <object type="text/html" data="GoogleMap.html"></object>
+  </div>
 `;
 
 var recycleGoogleMap = `
   <div>
     <h2>Get it recycled locally!</h2>
     <p>Here's a map of the closest "Electronics Recycling Locations" near you!</p>
-    <ul>
-        <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/home'>Map [NEEDS EDIT]</a>
-        </li>
-    </ul>
-    </div>
+    <object type="text/html" data="GoogleMap.html"></object>
+  </div>
 `;
 
 var recycleSIPickUp = `
