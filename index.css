@@ -16,6 +16,19 @@ para 1 - 14px - grey
 para 2 - 13px - grey
 para 3 - 12px - grey */
 
+.header {
+    /* background-color: #2F541B; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Open-Sans, Helvetica, sans-serif;
+    border-bottom: 5px solid #B5D12A;
+    height: 8vh;
+}
+
+.sd-root-modern {
+    min-height: 92vh;
+}
 
 li a{
     font-size: 24px;
