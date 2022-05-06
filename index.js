@@ -16,7 +16,7 @@ var repairGoogleMap = `
   <div>
     <h2>Get it fixed locally!</h2>
     <p>Here's a map of the closest "Electronic Repair Stores" near you!</p>
-    <object type="text/html" data="GoogleMap.html"></object>
+    <iframe type="text/html" src="GoogleMap.html?topic=repair" width="600" height="400"></iframe>
   </div>
 `;
 
@@ -24,7 +24,7 @@ var recycleGoogleMap = `
   <div>
     <h2>Get it recycled locally!</h2>
     <p>Here's a map of the closest "Electronics Recycling Locations" near you!</p>
-    <object type="text/html" data="GoogleMap.html"></object>
+    <iframe type="text/html" src="GoogleMap.html?topic=recycle" width="600" height="400"></iframe>
   </div>
 `;
 
@@ -146,6 +146,7 @@ var notsureSuggestions = `
 
 var json = {
   showQuestionNumbers: "off",
+  showNavigationButtons: false,
   elements: [
     {
       type: "text",

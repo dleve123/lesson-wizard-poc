@@ -15,53 +15,69 @@
 <body>
     <div id = "map"></div>
     <script>
-        function initMap(){
+        let map;
+        let places_service;
+
+
+        function initMap() {
+            var NYC = new google.maps.LatLng(40.7605,-73.9510)
+            var infowindow = new google.maps.InfoWindow();
+
             var options = {
-                zoom:11,
-                center: {lat:40.7605, lng: -73.9510}
+                zoom: 11,
+                center: NYC,
+                mapTypeControl: false,
+                streetViewControl: false
             }
-            // New Map
+
             var map = new google.maps.Map(document.getElementById('map'), options);
 
-            // Array of Markers
-            var markers = [
-                {
-                    coords:{lat:40.7605, lng: -73.9510},
-                    content:'<h1>Store Name 1</h1>',
-                },
-                {
-                    coords:{lat:40.748817, lng: -73.985428},
-                    content:'<h1>Store Name 2</h1>',
-                },
-            ];
-            
-            // Loop through markers
-            for(var i = 0 ; i< markers.length ; i++){
-                addMarker(markers[i]);
+            var topic = new URLSearchParams(window.location.search).get('topic')
+
+            if (topic == 'repair') {
+                topic_for_search = 'Electronic Repair Stores'
+            } else {
+                topic_for_search = 'Electronics Recycling Locations'
             }
 
-            // Add Marker Function 
-            function addMarker(props){
-                var marker = new google.maps.Marker({
-                    position: props.coords,
-                    map:map,
-                });
+            var request = {
+                query: `${topic_for_search} near ${parent.window.survey.getValue('zipcode')}`
+            };
 
-                // Check content
-                if(props.content){
-                    var infoWindow = new google.maps.InfoWindow({
-                        content: props.content
-                    });
+            places_service = new google.maps.places.PlacesService(map);
+            places_service.textSearch(request, places_callback);
 
-                    marker.addListener('click', function(){
-                        infoWindow.open(map, marker);
-                    });
+            function places_callback(results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
                 }
             }
+
+
+            function createMarker(place) {
+                if (!place.geometry || !place.geometry.location) return;
+
+                const marker = new google.maps.Marker({
+                    map,
+                    position: place.geometry.location,
+                });
+
+                google.maps.event.addListener(marker, "click", () => {
+                    places_service.getDetails({placeId: place.place_id}, (place, status) => {
+                        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                            content = `<a href=${place.url} target="_blank">${place.name}<\a>`
+                            infowindow.setContent(content);
+                            infowindow.open(map, marker)
+                        }
+                    })
+                });
+            }
         }
-    </script>    
+    </script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUg9YEABZ8O5F2nkbtkhWkfAo7xKWc5z0&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGa2V4TrBpRyQsz_LaKRT483-8R-FO2Pk&callback=initMap&libraries=places"
       defer
     ></script>
 </body>
