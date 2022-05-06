@@ -146,6 +146,7 @@ var notsureSuggestions = `
 
 var json = {
   showQuestionNumbers: "off",
+  showNavigationButtons: false,
   elements: [
     {
       type: "text",
