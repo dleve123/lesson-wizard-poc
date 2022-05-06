@@ -103,7 +103,7 @@ var takebackSuggestions = `
             </a>
         </li>
         <li>
-            <a target="_blank" href='https://www.apple.com/shop/trade-in'>
+            <a target="_blank" href='https://www.sony.com/electronics/support/articles/00206411'>
             <img alt="linkOut" src="imgs/linkout.jpg" width="12" height="12">
             Sony</a>
         </li>
