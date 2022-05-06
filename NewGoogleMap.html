@@ -32,8 +32,16 @@
 
             var map = new google.maps.Map(document.getElementById('map'), options);
 
+            var topic = new URLSearchParams(window.location.search).get('topic')
+
+            if (topic == 'repair') {
+                topic_for_search = 'Electronic Repair Stores'
+            } else {
+                topic_for_search = 'Electronics Recycling Locations'
+            }
+
             var request = {
-                query: 'electronic repair stores near 11231'
+                query: `${topic_for_search} near ${parent.window.survey.getValue('zipcode')}`
             };
 
             places_service = new google.maps.places.PlacesService(map);
@@ -59,7 +67,7 @@
                 google.maps.event.addListener(marker, "click", () => {
                     places_service.getDetails({placeId: place.place_id}, (place, status) => {
                         if (status == google.maps.places.PlacesServiceStatus.OK) {
-                            content = `<a href=${place.url}>${place.name}<\a>`
+                            content = `<a href=${place.url} target="_blank">${place.name}<\a>`
                             infowindow.setContent(content);
                             infowindow.open(map, marker)
                         }
