@@ -23,6 +23,11 @@ para 3 - 12px - grey */
     align-items: center;
     font-family: Open-Sans, Helvetica, sans-serif;
     border-bottom: 5px solid #B5D12A;
+    height: 8vh;
+}
+
+.sd-root-modern {
+    min-height: 92vh;
 }
 
 li a{
