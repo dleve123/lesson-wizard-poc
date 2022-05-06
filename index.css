@@ -1,0 +1,84 @@
+/* colors:
+grey #A0A09F #605E5E #2F2E2E
+yellow #B5D12A #748037 #3A401C
+green #8EFC52 #5FA837 #2F541B
+blue #3FDBFD
+red #FF0000
+
+fonts: helvetica Bold
+heading 1 - 24px - yellow
+heading 2 - 110px - grey
+heading 3 - 110px - white
+heading 4 - 106px - grey
+heading 5 - 24px - grey
+heading 6 - 14px - grey
+para 1 - 14px - grey
+para 2 - 13px - grey
+para 3 - 12px - grey */
+
+
+li a{
+    font-size: 24px;
+}
+
+li a:link {
+    color: #5FA837;
+    text-decoration: none;
+}
+
+li a:visited {
+    color: #5FA837;
+}
+
+li a:hover {
+    color: #2F541B;
+    text-decoration: underline;
+}
+
+.sd-radio--checked .sd-radio__control:focus+.sd-radio__decorator:after {
+    background-color: var(--primary, #748037);
+}
+
+.sd-item__control:focus+.sd-item__decorator, .sd-item--allowhover:hover .sd-item__decorator {
+    box-shadow: 0 0 0 2px var(--primary, #748037);
+}
+
+.sd-item__control+.sd-item__decorator .sd-item__decorator {
+    background-color: var(--primary, #748037);
+}
+
+.sd-item--checked .sd-item__decorator {
+    background: var(--primary, #748037);
+}
+
+/* .sd-input .sd-text:focus {
+    border-color: #748037;
+    outline-color: #748037;
+}
+
+.sq_100i:focus .sd-input:focus .sd-text {
+    border-color: #748037;
+    outline-color: #748037;
+}
+
+.sq_100i:focus {
+    border-color: #748037;
+    outline-color: #748037;
+}
+
+.sd-question_content > *{
+    border-color: #748037;
+    background-color: #748037;
+    outline-color: #748037;
+}
+
+input:focus {
+    border-color: #748037;
+    border: none;
+    outline-color: #748037;
+    background-color: #748037;
+}
+
+input {
+    outline: none;
+} */
