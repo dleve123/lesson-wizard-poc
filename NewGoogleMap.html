@@ -18,6 +18,7 @@
         let map;
         let places_service;
 
+
         function initMap() {
             var NYC = new google.maps.LatLng(40.7605,-73.9510)
             var infowindow = new google.maps.InfoWindow();
@@ -29,29 +30,9 @@
                 streetViewControl: false
             }
 
-            // New Map
             var map = new google.maps.Map(document.getElementById('map'), options);
 
-            // Array of Markers
-            // var markers = [
-            //     {
-            //         coords:{lat:40.7605, lng: -73.9510},
-            //         content:'<h1>Store Name 1</h1>',
-            //     },
-            //     {
-            //         coords:{lat:40.748817, lng: -73.985428},
-            //         content:'<h1>Store Name 2</h1>',
-            //     },
-            // ];
-
-            // Loop through markers
-            // for(var i = 0 ; i< markers.length ; i++){
-            //     addMarker(markers[i]);
-            // }
-
             var request = {
-                // location: NYC,
-                // radius: '500',
                 query: 'electronic repair stores near 11231'
             };
 
@@ -61,14 +42,12 @@
             function places_callback(results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     for (var i = 0; i < results.length; i++) {
-                        var place = results[i];
                         createMarker(results[i]);
                     }
                 }
             }
 
 
-            // Add Marker Function
             function createMarker(place) {
                 if (!place.geometry || !place.geometry.location) return;
 
@@ -78,8 +57,13 @@
                 });
 
                 google.maps.event.addListener(marker, "click", () => {
-                    infowindow.setContent(place.name || "");
-                    infowindow.open(map, marker)
+                    places_service.getDetails({placeId: place.place_id}, (place, status) => {
+                        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                            content = `<a href=${place.url}>${place.name}<\a>`
+                            infowindow.setContent(content);
+                            infowindow.open(map, marker)
+                        }
+                    })
                 });
             }
         }
