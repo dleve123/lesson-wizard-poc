@@ -4,9 +4,11 @@ var repairIFixit = `
   <div>
     <h2>A fixer upper!</h2>
     <p>Here is some help to get you started on fixing your own device!</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www.ifixit.com'>iFixit</a>
+            <a target="_blank" href='https://www.ifixit.com'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            iFixit</a>
         </li>
     </ul>
     </div>
@@ -32,9 +34,11 @@ var recycleSIPickUp = `
   <div>
     <h2>Get your electronics picked up!</h2>
     <p>Here's how to get your e-waste picked up in Staten Island.</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/contact/e-waste-pickup-request'>Staten Island Pickup</a>
+            <a target="_blank" href='https://www1.nyc.gov/assets/dsny/site/contact/e-waste-pickup-request'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Staten Island Pickup</a>
         </li>
     </ul>
   </div>
@@ -44,9 +48,11 @@ var recycleDSNYDropOff = `
   <div>
     <h2>DSNY Drop off Locations</h2>
     <p>Here are some of the DSNY drop off locations.</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/services/electronics/electronics-drop-off-locations'>DSNY Drop Offs</a>
+            <a target="_blank" href='https://www1.nyc.gov/assets/dsny/site/services/electronics/electronics-drop-off-locations'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            DSNY Drop Offs</a>
         </li>
     </ul>
   </div>
@@ -56,9 +62,11 @@ var recyclePopUpropOff = `
   <div>
     <h2>LES EC Pop Up Events</h2>
     <p>Make a day out if it! Here is a schedule of the Pop Up events where you can take your e-waste to!</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www.lesecologycenter.org/e-waste-collection-is-back/'>LES EC Pop Up</a>
+            <a target="_blank" href='https://www.lesecologycenter.org/e-waste-collection-is-back/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            LES EC Pop Up</a>
         </li>
     </ul>
   </div>
@@ -68,12 +76,16 @@ var sellingSuggestions = `
   <div>
     <h2>Selling Your E-waste</h2>
     <p>If you think your e-waste is in a re-sellable state, we recommend the following marketplaces</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www.gizmogo.com/'>Gizmogo</a>
+            <a target="_blank" href='https://www.gizmogo.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Gizmogo</a>
         </li>
         <li>
-            <a href='https://www.backmarket.com/'>Back Market</a>
+            <a target="_blank" href='https://www.backmarket.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Back Market</a>
         </li>
     </ul>
   </div>
@@ -83,36 +95,57 @@ var takebackSuggestions = `
   <div>
     <h2>Returning your E-waste to its Manufacturer</h2>
     <p>Some manufacturers will take your electronics back, perhaps even for some store credit!</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www.samsung.com/us/aboutsamsung/sustainability/environment/responsible-recycling/programs/'>Samsung</a>
+            <a target="_blank" href='https://www.samsung.com/us/aboutsamsung/sustainability/environment/responsible-recycling/programs/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Samsung
+            </a>
         </li>
         <li>
-            <a href='https://www.apple.com/shop/trade-in'>Sony</a>
+            <a target="_blank" href='https://www.apple.com/shop/trade-in'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Sony</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>Panasonic</a>
+            <a target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Panasonic</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>Hisense</a>
+            <a target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Hisense</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>Toshiba</a>
+            <a target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Toshiba</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>Sharp</a>
+            <a target="_blank" target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Sharp</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>TCL</a>
+            <a target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            TCL</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>Hitachi</a>
+            <a target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Hitachi</a>
         </li>
         <li>
-            <a href='http://www.mrmrecycling.com/'>Sharp</a>
+            <a target="_blank" href='http://www.mrmrecycling.com/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Sharp</a>
         </li>
         <li>
-            <a href='https://www.apple.com/shop/trade-in'>Apple</a>
+            <a target="_blank" href='https://www.apple.com/shop/trade-in'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Apple</a>
         </li>
     </ul>
   </div>
@@ -121,12 +154,16 @@ var takebackSuggestions = `
 var donationSuggestions = `
   <div>
     <h2>Donation Suggestions</h2>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www.goodwillnynj.org/donate-goods'>Goodwill NY/NJ</a>
+            <a target="_blank" href='https://www.goodwillnynj.org/donate-goods'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Goodwill NY/NJ</a>
         </li>
         <li>
-            <a href='https://satruck.org/'>Salvation Army</a>
+            <a target="_blank" href='https://satruck.org/'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            Salvation Army</a>
         </li>
     </ul>
   </div>
@@ -136,9 +173,11 @@ var notsureSuggestions = `
   <div>
     <h2>Get more information</h2>
     <p>If you are not sure what to do with your e-waste, we recommend you visit DSNY</p>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-            <a href='https://www1.nyc.gov/assets/dsny/site/home'>DSNY</a>
+            <a target="_blank" href='https://www1.nyc.gov/assets/dsny/site/home'>
+            <img alt="linkOut" src="imgs/linkout.jpg" width=12" height="12">
+            DSNY</a>
         </li>
     </ul>
   </div>
